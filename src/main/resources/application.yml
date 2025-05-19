@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  public-url: "http://localhost:8080"
+  servlet:
+    context-path: "/api"
+
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
+
+spring:
+  cloud:
+    compatibility-verifier:
+      enabled: false
+  application:
+    name: java-baseproject
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=baseproject
+    username: postgres
+    password: socialimpact
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: wisdom.zero.baseproject.config.PostgreSQL94CustomDialect
+    show-sql: true
+
+elasticsearch:
+  password:
+  username:
+  url: localhost
+
+wisdom:
+  core:
+    users: https://users-microservice/api/v1/users/
+    cookie: wZs
+
+sentry:
+  dsn: ""
+  environment: local
+  traces-sample-rate: 0.1
